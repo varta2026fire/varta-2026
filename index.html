@@ -273,13 +273,7 @@
             <h2>Sample Input / Output Format</h2>
             <p>To generalize across systems, the input paragraph is shown here in English. Submitted architectures must extract a list of 5-tuple blocks formatted cleanly in JSON.</p>
             
-            <div class="framework-box" style="background-color: #fffaf0; border-left: 4px solid var(--accent-color); padding: 1rem 1.5rem; margin-bottom: 1.5rem;">
-                <strong>Null & Empty Value Constraints:</strong>
-                <ul style="margin: 0.5rem 0 0 0; padding-left: 1.2rem;">
-                    <li>If <code>opinion_by_entity</code> or <code>opinion_targeted_to_target_entity</code> is not present, its value must be an empty string <code>""</code>.</li>
-                    <li>If <code>opinion_targeted_to_target_entity</code> is an empty string <code>""</code>, then both <code>polarity_of_opinion_targeted_to_target_entity</code> and <code>intensity_of_the_opinion</code> must be explicitly set to <code>null</code>.</li>
-                </ul>
-            </div>
+           
             
             <div class="io-container">
                 <span class="io-label">Sample Input Paragraph:</span>
@@ -312,7 +306,24 @@
   }
 ]</code></pre>
             </div>
+
+
+ <div class="framework-box" style="background-color: #fffaf0; border-left: 4px solid var(--accent-color); padding: 1rem 1.5rem; margin-bottom: 1.5rem;">
+                <strong>Null & Empty Value Constraints:</strong>
+                <ul style="margin: 0.5rem 0 0 0; padding-left: 1.2rem;">
+                    <li>If <code>opinion_by_entity</code> or <code>opinion_targeted_to_target_entity</code> is not present, its value must be an empty string <code>""</code>.</li>
+                    <li>If <code>opinion_targeted_to_target_entity</code> is an empty string <code>""</code>, then both <code>polarity_of_opinion_targeted_to_target_entity</code> and <code>intensity_of_the_opinion</code> must be explicitly set to <code>null</code>.</li>
+                </ul>
+            </div>
+
+
+
+
+
+            
         </section>
+
+        
         <section id="languages">
             <h2>Supported Languages & Data Access</h2>
             <p>Reflecting the linguistic diversity of the Indian news ecosystem, our curated dataset contains source material spanning several languages:</p>
