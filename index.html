@@ -339,15 +339,35 @@
             </div>
         </section>
 
-        <section id="evaluation">
+     <section id="evaluation">
             <h2>Evaluation Metrics</h2>
-            <p>System submissions will be strictly benchmarked across every independent field tier using targeted structural verification:</p>
+            <p>System submissions will be benchmarked using a per-record evaluation strategy that jointly assesses entity recognition, semantic extraction quality, and classification accuracy:</p>
+            
             <ul>
-                <li><strong>Entity Extractions:</strong> Precision, Recall, and standard F1 Score.</li>
-                <li><strong>Textual Content (By / Targeted To):</strong> Semantic preservation evaluated using embedding alignment strategies.</li>
-                <li><strong>Polarity Assertions:</strong> Standard Macro F1 classification tracking across evaluation sets.</li>
-                <li><strong>Intensity Assignments:</strong> Categorical accuracy profiles and structural error mappings.</li>
+                <li>
+                    <strong>Salient Entity Alignment:</strong> 
+                    Evaluated using token-level <strong>Overlap F1-Score</strong> rather than exact string matching. This ensures systems are fairly rewarded for capturing partial or synonymous entity mentions (e.g., matching "Ministry of Finance" with "Finance Ministry").
+                </li>
+                <li>
+                    <strong>Opinion Fields Correctness (By / Targeted To):</strong>
+                    Because opinions are expressed in natural language text, they are evaluated across two dimensions:
+                    <ul>
+                        <li><em>Semantic Correctness:</em> Measured via <strong>BERTScore</strong> and embedding-based cosine similarity to verify that the extracted text accurately preserves the meaning of the ground truth.</li>
+                        <li><em>Syntactic Correctness:</em> Evaluated using language model <strong>Perplexity (PPL)</strong> to penalize fragmented "word-salad" outputs and reward grammatically coherent, fluent extractions.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Polarity Classification:</strong> 
+                    Evaluated using <strong>Macro F1-Score</strong> across the three distinct classes: <code>Positive</code>, <code>Negative</code>, and <code>Factual</code>.
+                </li>
+                <li>
+                    <strong>Intensity Accuracy:</strong> 
+                    Evaluated using <strong>Mean Absolute Error (MAE)</strong> by mapping the ordinal scale labels to numeric weights (<code>Low = 1</code>, <code>Medium = 2</code>, <code>High = 3</code>), ensuring near-miss predictions are penalized less than complete opposites.
+                </li>
             </ul>
+            <p style="font-size: 0.9rem; color:#718096; margin-top: 1rem;">
+                *Note: The evaluation script strictly enforces constraints; if an <code>opinion_targeted_to_target_entity</code> is correctly predicted as an empty string (<code>""</code>), the associated polarity and intensity metrics must match the <code>null</code> ground truth to avoid penalties.
+            </p>
         </section>
 
         <section id="timeline">
