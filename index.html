@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARTA-2026: Viewpoint Analysis and Representation of Targeted Actors in Indian News</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #dd6b20;
+            --text-color: #2d3748;
+            --bg-light: #f7fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 1rem 0 0 0;
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+
+        .fire-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #feebc8;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #feebc8;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .fire-link:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.6rem;
+            margin-top: 0;
+            font-size: 1.75rem;
+        }
+
+        .framework-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .framework-item {
+            margin-bottom: 1rem;
+        }
+
+        .framework-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .date-label {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .lang-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background-color: #edf2f7;
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.9rem; }
+            .timeline-grid { grid-template-columns: 1fr; gap: 4px; }
+            .timeline-grid div:nth-child(even) { margin-bottom: 12px; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VARTA-2026</h1>
+        <p>Viewpoint Analysis and Representation of Targeted Actors in Indian News</p>
+        <a href="https://fire.irsi.org.in/fire/2026/home" class="fire-link" target="_blank">A Shared Task at FIRE 2026</a>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#task">Task Definition</a>
+            <a href="#languages">Languages</a>
+            <a href="#evaluation">Evaluation</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#organizers">Organizers</a>
+        </nav>
+
+        <section id="about">
+            <h2>About the Track</h2>
+            <p>The word <strong>Varta</strong> originates from Indian languages and denotes news, reporting, or public communication[cite: 4]. News narratives frequently encompass multiple conflicting viewpoints and frame individual stakeholders in highly disparate ways[cite: 5, 6, 9]. Resolving entity-specific sentiment profile tracking is key to structural breakthroughs in fields like computational journalism, media narrative tracking, and subtle media bias observation[cite: 13].</p>
+            <p>Traditional metrics look blindly at sentence or document levels[cite: 15]. <strong>VARTA-2026</strong> offers a specialized benchmark designed to extract highly granular, structured annotations centered around key stakeholders directly out of complex, long-context text environments[cite: 7, 32, 76].</p>
+        </section>
+
+        <section id="task">
+            <h2>Task Definition</h2>
+            <p>Participants are tasked with evaluating a document and mapping out entity expressions using a structured 5-part architecture framework:</p>
+            
+            <div class="framework-box">
+                <div class="framework-item">
+                    <span class="badge">1</span> <strong>Salient Entity:</strong> The designated focus target (person, group, or system entity)[cite: 25].
+                </div>
+                <div class="framework-item">
+                    <span class="badge">2</span> <strong>What is said ABOUT the entity:</strong> The explicit context summaries or implicit opinions targeted toward that entity[cite: 21, 26, 27].
+                </div>
+                <div class="framework-item">
+                    <span class="badge">3</span> <strong>What is said BY the entity:</strong> Explanatory arguments, reactions, quotes, or viewpoints directly presented by the actor.
+                </div>
+                <div class="framework-item">
+                    <span class="badge">4</span> <strong>Polarity of what is said ABOUT the entity:</strong> The structured tone class categorization (<em>Positive</em> or <em>Negative</em>).
+                </div>
+                <div class="framework-item">
+                    <span class="badge">5</span> <strong>Intensity of what is said ABOUT the entity:</strong> The relative emotional magnitude tier (<em>High</em>, <em>Medium</em>, or <em>Low</em>).
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h2>Supported Languages</h2>
+            <p>Reflecting the linguistic diversity of the Indian news ecosystem, our curated dataset contains source material spanning several languages[cite: 46]:</p>
+            <div class="lang-tags">
+                <span class="tag">English</span>
+                <span class="tag">Hindi</span>
+                <span class="tag">Bengali</span>
+                <span class="tag">Telugu</span>
+                <span class="tag">Tamil</span>
+            </div>
+            <p style="font-size: 0.9rem; color:#718096; margin-top: 1rem;">*Additional regional languages may be integrated continuously as validation steps wrap up[cite: 47]. All data tracks conform entirely to open-access FAIR data principles[cite: 59].</p>
+        </section>
+
+        <section id="evaluation">
+            <h2>Evaluation Metrics</h2>
+            <p>System submissions will be strictly benchmarked across every independent field tier using targeted structural verification[cite: 62]:</p>
+            <ul>
+                <li><strong>Entity Extractions:</strong> Precision, Recall, and standard F1 Score[cite: 63].</li>
+                <li><strong>Textual Content (About/By):</strong> Semantic preservation evaluated using embedding alignment strategies and BERTScore variations[cite: 66].</li>
+                <li><strong>Polarity Assertions:</strong> Standard Macro F1 classification tracking across evaluation sets[cite: 64].</li>
+                <li><strong>Intensity Assignments:</strong> Categorical accuracy profiles and structural error mappings.</li>
+            </ul>
+        </section>
+
+        <section id="timeline">
+            <h2>Track Timeline</h2>
+            <p>Our operation map coordinates with the master schedule outlined by the FIRE 2026 organizing committee[cite: 69]:</p>
+            
+            <div class="timeline-grid">
+                <div class="date-label">May 2026</div><div>Training & Development Sets Distributed [cite: 69]</div>
+                <div class="date-label">June 2026</div><div>Test Data Release & System Evaluation Runs Due [cite: 69, 70]</div>
+                <div class="date-label">July 2026</div><div>Official Result Leaderboard Released [cite: 70]</div>
+                <div class="date-label">August 2026</div><div>Working Notes Paper Submission Window [cite: 70]</div>
+                <div class="date-label">September 2026</div><div>Camera-Ready Material Lock [cite: 70]</div>
+                <div class="date-label">December 2026</div><div>FIRE 2026 Peer Workshop Presentation [cite: 70]</div>
+            </div>
+        </section>
+
+        <section id="organizers">
+            <h2>Track Organizers</h2>
+            <p>For any queries regarding the dataset, task criteria, or evaluation process, please contact the organizers:</p>
+            <ul>
+                <li>
+                    <strong>Dr. Alapan Kuila</strong><br>
+                    Assistant Professor, Indian Institute of Information Technology Design and Manufacturing (IIITDM) Kurnool, Andhra Pradesh, India [cite: 73]
+                </li>
+                <li style="margin-top: 1rem;">
+                    <strong>Dr. Prashant Kapil</strong><br>
+                    Assistant Professor, Bennett University, Uttar Pradesh, India [cite: 74]
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VARTA-2026 Track Organizers. Hosted openly via GitHub Pages. Linked to FIRE 2026.</p>
+    </footer>
+
+</body>
+</html>
