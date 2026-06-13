@@ -271,34 +271,48 @@
 
         <section id="sample">
             <h2>Sample Input / Output Format</h2>
-            <p>To generalize across systems, the input paragraph is shown here in English. Submitted architectures must extract a list of 5-tuple blocks formatted cleanly in JSON:</p>
+            <p>To generalize across systems, the input paragraph is shown here in English. Submitted architectures must extract a list of 5-tuple blocks formatted cleanly in JSON.</p>
+            
+            <div class="framework-box" style="background-color: #fffaf0; border-left: 4px solid var(--accent-color); padding: 1rem 1.5rem; margin-bottom: 1.5rem;">
+                <strong>Null & Empty Value Constraints:</strong>
+                <ul style="margin: 0.5rem 0 0 0; padding-left: 1.2rem;">
+                    <li>If <code>opinion_by_entity</code> or <code>opinion_targeted_to_target_entity</code> is not present, its value must be an empty string <code>""</code>.</li>
+                    <li>If <code>opinion_targeted_to_target_entity</code> is an empty string <code>""</code>, then both <code>polarity_of_opinion_targeted_to_target_entity</code> and <code>intensity_of_the_opinion</code> must be explicitly set to <code>null</code>.</li>
+                </ul>
+            </div>
             
             <div class="io-container">
                 <span class="io-label">Sample Input Paragraph:</span>
                 <div class="sample-input">
-                    "The government announced a major infrastructure development plan aimed at improving rural connectivity. Officials described the initiative as a significant step toward economic growth. However, opposition leaders criticized the plan, calling it unrealistic and accusing the government of ignoring key implementation challenges."
+                    "The Ministry of Finance confidently announced a new tax exemption policy for tech startups to encourage regional innovation. While a leading startup incubator enthusiastically welcomed the decision, an independent statistical bureau simply updated its quarterly index charts to reflect the policy change without releasing any statement or reaction."
                 </div>
 
                 <span class="io-label">Expected Output JSON (List of 5-tuples):</span>
                 <pre><code>[
   {
-    "salient_entity": "Government",
-    "opinion_by_entity": "announced a major infrastructure development plan aimed at improving rural connectivity and described the initiative as a significant step toward economic growth",
-    "opinion_targeted_to_target_entity": "major infrastructure development plan improving connectivity",
+    "salient_entity": "Ministry of Finance",
+    "opinion_by_entity": "confidently announced a new tax exemption policy for tech startups to encourage regional innovation",
+    "opinion_targeted_to_target_entity": "welcomed enthusiastically by leading startup incubator",
     "polarity_of_opinion_targeted_to_target_entity": "Positive",
     "intensity_of_the_opinion": "High"
   },
   {
-    "salient_entity": "Opposition",
-    "opinion_by_entity": "criticized the plan, calling it unrealistic and accusing the government of ignoring key implementation challenges",
-    "opinion_targeted_to_target_entity": "criticized plan as unrealistic and poorly implemented",
-    "polarity_of_opinion_targeted_to_target_entity": "Negative",
-    "intensity_of_the_opinion": "High"
+    "salient_entity": "Startup incubator",
+    "opinion_by_entity": "enthusiastically welcomed the decision",
+    "opinion_targeted_to_target_entity": "",
+    "polarity_of_opinion_targeted_to_target_entity": null,
+    "intensity_of_the_opinion": null
+  },
+  {
+    "salient_entity": "Statistical bureau",
+    "opinion_by_entity": "",
+    "opinion_targeted_to_target_entity": "updated its quarterly index charts to reflect the policy change",
+    "polarity_of_opinion_targeted_to_target_entity": "Factual",
+    "intensity_of_the_opinion": "Low"
   }
 ]</code></pre>
             </div>
         </section>
-
         <section id="languages">
             <h2>Supported Languages & Data Access</h2>
             <p>Reflecting the linguistic diversity of the Indian news ecosystem, our curated dataset contains source material spanning several languages[cite: 46]:</p>
