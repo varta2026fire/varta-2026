@@ -252,16 +252,16 @@
             
             <div class="framework-box">
                 <div class="framework-item">
-                    <span class="badge">1</span> <strong>Salient Entity:</strong> The core person, group, organization, or stakeholder target entity.
+                    <span class="badge">1</span> <strong>Target Entity:</strong> The core person, group, organization, or stakeholder target entity.
                 </div>
                 <div class="framework-item">
-                    <span class="badge">2</span> <strong>Opinion BY Entity:</strong> Arguments, reactions, quotes, or viewpoints directly put forward or presented by the actor.
+                    <span class="badge">2</span> <strong>Opinion By the Target Entity:</strong> Arguments, reactions, quotes, or viewpoints directly put forward or presented by the actor.
                 </div>
                 <div class="framework-item">
-                    <span class="badge">3</span> <strong>Opinion Targeted TO Target Entity:</strong> Context summaries, framing descriptions, or implicit opinions targeted toward that entity by others or the reporter.
+                    <span class="badge">3</span> <strong>Opinion Towards Target Entity:</strong> Context summaries, framing descriptions, or implicit opinions targeted toward that entity by others or the reporter.
                 </div>
                 <div class="framework-item">
-                    <span class="badge">4</span> <strong>Polarity of Opinion Targeted TO Target Entity:</strong> The structured tone classification label (<em>Positive</em> or <em>Negative</em>).
+                    <span class="badge">4</span> <strong>Polarity of Opinion Towards Target Entity:</strong> The structured tone classification label (<em>Positive</em> or <em>Negative</em>).
                 </div>
                 <div class="framework-item">
                     <span class="badge">5</span> <strong>Intensity of the Opinion:</strong> The relative strength or magnitude tier of the expressed polarity (<em>High</em>, <em>Medium</em>, or <em>Low</em>).
@@ -284,25 +284,25 @@
                 <span class="io-label">Expected Output JSON (List of 5-tuples):</span>
                 <pre><code>[
   {
-    "salient_entity": "Ministry of Finance",
-    "opinion_by_entity": "confidently announced a new tax exemption policy for tech startups to encourage regional innovation",
-    "opinion_targeted_to_target_entity": "welcomed enthusiastically by leading startup incubator",
-    "polarity_of_opinion_targeted_to_target_entity": "Positive",
-    "intensity_of_the_opinion": "High"
+    "target_entity": "Ministry of Finance",
+    "opinion_by_target_entity": "confidently announced a new tax exemption policy for tech startups to encourage regional innovation",
+    "opinion_on_target_entity": "welcomed enthusiastically by leading startup incubator",
+    "polarity_towards_target_entity": "Positive",
+    "intensity": "High"
   },
   {
-    "salient_entity": "Startup incubator",
-    "opinion_by_entity": "enthusiastically welcomed the decision",
-    "opinion_targeted_to_target_entity": "",
-    "polarity_of_opinion_targeted_to_target_entity": null,
-    "intensity_of_the_opinion": null
+    "target_entity": "Startup incubator",
+    "opinion_by_target_entity": "enthusiastically welcomed the decision",
+    "opinion_on_target_entity": "",
+    "polarity_towards_target_entity": null,
+    "intensity": null
   },
   {
-    "salient_entity": "Statistical bureau",
-    "opinion_by_entity": "",
-    "opinion_targeted_to_target_entity": "updated its quarterly index charts to reflect the policy change",
-    "polarity_of_opinion_targeted_to_target_entity": "Factual",
-    "intensity_of_the_opinion": "Low"
+    "target_entity": "Statistical bureau",
+    "opinion_by_target_entity": "",
+    "opinion_on_target_entity": "updated its quarterly index charts to reflect the policy change",
+    "polarity_towards_target_entity": "Factual",
+    "intensity": "Low"
   }
 ]</code></pre>
             </div>
@@ -377,10 +377,11 @@
             <div class="timeline-grid">
 
                 <div class="date-label">15th June 2026</div><div><strong>Registration Opens</strong></div>
-                <div class="date-label">20th June 2026</div><div><strong>Release of Training Dataset</strong></div>
-                <div class="date-label">20th July 2026</div><div>Test Data Release</div>
-                <div class="date-label">30th July 2026</div><div>System Evaluation Runs Due</div>
-                <div class="date-label">10th August 2026</div><div>Official Result Leaderboard Released</div>
+                <div class="date-label">15th July 2026</div><div><strong>Registration Closes</strong></div>
+                <div class="date-label">7th July 2026</div><div><strong>Release of Training Dataset</strong></div>
+                <div class="date-label">31st July 2026</div><div>Test Data Release</div>
+                <div class="date-label">7th August 2026</div><div>System Evaluation Runs Due</div>
+                <div class="date-label">14th August 2026</div><div>Official Result Leaderboard Released</div>
                 <div class="date-label">30th August 2026</div><div>Working Notes due</div>
                 <div class="date-label">30th September 2026</div><div>Camera-Ready Material due</div>
                 <div class="date-label"> 17th - 20th December 2026</div><div>FIRE 2026(Kolkata, India)</div>
